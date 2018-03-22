@@ -1,0 +1,140 @@
+git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
+
+cd azure-voting-app-redis
+
+
+--
+docker-compose up -d
+
+-- downloaded builded images
+docker images
+
+-- running containers
+docker ps
+
+-- stop containers
+docker-compose stop
+
+-- delete containers
+docker-compose down
+
+
+--
+-- Create container registry
+--
+
+-- create group
+az group create --name bigBangGroup --location eastus
+
+-- create azure container registry
+az acr create --resource-group bigBangGroup --name bigBangContainerRegistry --sku Basic
+
+-- login to azure container registry -- not working with cmder
+az acr login --name bigBangContainerRegistry
+
+-- current images
+docker images
+
+-- list
+az acr list --resource-group bigBangGroup --query "[].{acrLoginServer:loginServer}" --output table
+
+-- add tag
+docker tag azure-vote-front bigbangcontainerregistry.azurecr.io/azure-vote-front:v1
+
+-- verify images
+docker images
+
+-- push containers to server
+docker push bigbangcontainerregistry.azurecr.io/azure-vote-front:v1
+
+-- get repositories
+az acr repository list --name bigBangContainerRegistry --output table
+
+-- get all tags for specified solution
+az acr repository show-tags --name bigBangContainerRegistry --repository azure-vote-front --output table
+
+
+
+
+
+--
+-- Create Kubernetes cluster
+--
+
+-- register containers --NOT REQUIRED
+az provider register -n Microsoft.ContainerService
+
+-- create AKS cluster
+az aks create --resource-group bigBangGroup --name bigBangCluster --node-count 1 --generate-ssh-keys
+
+-- browse aks
+az aks browse --resource-group bigBangGroup --name bigBangCluster
+
+-- install Kubernetes CLI --NOT REQUIRED
+az aks install-cli
+
+-- connect with kubectl
+az aks get-credentials --resource-group=bigBangGroup --name=bigBangCluster
+
+-- get nodes
+kubectl get nodes
+
+-- set client ID
+CLIENT_ID=$(az aks show --resource-group bigBangGroup --name bigBangCluster --query "servicePrincipalProfile.clientId" --output tsv)
+
+-- set ACR ID
+ACR_ID=$(az acr show --name bigBangContainerRegistry --resource-group bigBangGroup --query "id" --output tsv)
+
+
+-- connect cluster with registry
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
+
+az role assignment create --assignee 6b609959-a36f-43eb-88b3-5acf7f95c7e0 --role Reader --scope /subscriptions/f159d125-6d0b-4db2-b185-67dcd4ba1a3e/resourceGroups/bigBangGroup/providers/Microsoft.ContainerRegistry/registries/bigBangContainerRegistry
+
+
+
+
+
+--
+-- Run app
+--
+
+-- get loginServer
+az acr list --resource-group bigBangGroup --query "[].{acrLoginServer:loginServer}" --output table
+
+!!!! azure-vote-all-in-one-redis.yaml
+containers:
+- name: azure-vote-front
+  image: microsoft/azure-vote-front:v1 -> image: <acrName//loginserver>.azurecr.io/azure-vote-front:v1
+
+-- deploy app
+kubectl create -f azure-vote-all-in-one-redis.yaml
+
+-- get service address - external address
+kubectl get service azure-vote-front --watch
+
+
+
+
+
+--
+-- auto scaling -long running
+--
+
+-- scale
+az aks scale --resource-group=bigBangGroup --name=bigBangCluster --node-count 3
+
+-- get replicas
+kubectl get pods
+
+-- scale pods in deployent
+kubectl scale --replicas=5 deployment/azure-vote-front
+
+-- get replicas
+kubectl get pods
+
+-- auto scaling if cpu utilization exceeds 50%
+kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
+
+-- get auto scaler status
+kubectl get hpa

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- SEO -->
+  <title>Azure container services</title>
+  <meta name="description" content="WebSlides Cheat Sheet. A quick reference guide for beginners. This tutorial contains hundreds of HTML/CSS examples.">
+
+  <!-- URL CANONICAL -->
+  <!-- <link rel="canonical" href="http://your-url.com/permalink"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+
+  <!-- CSS Base -->
+  <link rel="stylesheet" type='text/css' media='all' href="../static/css/webslides.css">
+
+  <!-- Optional - CSS SVG Icons (Font Awesome) -->
+  <link rel="stylesheet" type="text/css" media="all" href="../static/css/svg-icons.css">
+
+  <!-- SOCIAL CARDS (ADD YOUR INFO) -->
+
+  <!-- FACEBOOK -->
+  <meta property="og:url" content="http://your-url.com/permalink" />
+  <!-- YOUR URL/PERMALINK -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="WebSlides Documentation: Classes" />
+  <!-- EDIT -->
+  <meta property="og:description" content="A quick reference guide. This tutorial contains hundreds of HTML/CSS examples.">
+  <!-- EDIT -->
+  <meta property="og:updated_time" content="2017-01-04T17:23:46">
+  <!-- EDIT -->
+  <meta property="og:image" content="../static/images/share-webslides.jpg">
+  <!-- EDIT -->
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@webslides">
+  <!-- EDIT -->
+  <meta name="twitter:creator" content="@jlantunez">
+  <!-- EDIT -->
+  <meta name="twitter:title" content="WebSlides Documentation: Classes">
+  <!-- EDIT -->
+  <meta name="twitter:description" content="WebSlides Cheat Sheet.This tutorial contains hundreds of HTML/CSS examples.">
+  <!-- EDIT -->
+  <meta name="twitter:image" content="../static/images/share-webslides.jpg">
+  <!-- EDIT -->
+
+  <!-- FAVICONS -->
+  <link rel="shortcut icon" sizes="16x16" href=".../static/images/favicons/favicon.png">
+  <link rel="shortcut icon" sizes="32x32" href="../static/images/favicons/favicon-32.png">
+  <link rel="apple-touch-icon icon" sizes="76x76" href="../static/images/favicons/favicon-76.png">
+  <link rel="apple-touch-icon icon" sizes="120x120" href="../static/images/favicons/favicon-120.png">
+  <link rel="apple-touch-icon icon" sizes="152x152" href="../static/images/favicons/favicon-152.png">
+  <link rel="apple-touch-icon icon" sizes="180x180" href="../static/images/favicons/favicon-180.png">
+  <link rel="apple-touch-icon icon" sizes="192x192" href="../static/images/favicons/favicon-192.png">
+
+  <!-- Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#333333">
+</head>
+
+<body>
+  <header role="banner">
+    <nav role="navigation">
+      <p class="logo">
+        <a href="../index.html" title="WebSlides">WebSlides</a>
+      </p>
+      <ul>
+        <li class="github">
+          <a rel="external" href="https://github.com/webslides/webslides" title="Github">
+            <svg class="fa-github">
+              <use xlink:href="#fa-github"></use>
+            </svg>
+            <em>WebSlides</em>
+          </a>
+        </li>
+        <li class="twitter">
+          <a rel="external" href="https://twitter.com/webslides" title="Twitter">
+            <svg class="fa-twitter">
+              <use xlink:href="#fa-twitter"></use>
+            </svg>
+            <em>@WebSlides</em>
+          </a>
+        </li>
+        <!--  <li class="dribbble"><a rel="external" href="http://dribbble.com/webslides" title="Dribbble"><svg class="fa-dribbble"><use xlink:href="#fa-dribbble"></use></svg> <em>webslides</em></a></li> -->
+      </ul>
+    </nav>
+  </header>
+
+  <main role="main">
+    <article id="webslides">
+
+      <section class="aligncenter bg-black">
+        <span class="background dark anim" style="background-image:url('https://source.unsplash.com/HC9opzxKUgg/')"></span>
+        <div class="wrap">
+          <h1 class="text-landing text-shadow">Azure containers 101</h1>
+          <p class="text-intro text-shadow">Production destruction.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap size-40 zoomIn aligncenter">
+          <figure>
+            <img src="https://www.spantree.net/images/docker-vs-virtual-machines.png" alt="Pixel Phone">
+          </figure>
+          <p>VM vs Docker</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <div class="wrap">
+          <h2>Czym jest Docker?</h2>
+          <ul class="flexblock features">
+            <li>
+              <div>
+                <h2>
+                  <svg class="fa-list-ol">
+                    <use xlink:href="#fa-list-ol"></use>
+                  </svg>
+                  Api do obsługi contenerów
+                </h2>
+                zarządza kontenerami linuxowymi
+              </div>
+            </li>
+            <li>
+              <div>
+                <h2>
+                  <svg class="fa-bolt">
+                    <use xlink:href="#fa-bolt"></use>
+                  </svg>
+                  Microservice/wątek/funkcjonalność
+                </h2>
+                kontener można porównać do wątku
+              </div>
+            </li>
+            <li>
+              <div>
+                <h2>
+                  <svg class="fa-clock-o">
+                    <use xlink:href="#fa-clock-o"></use>
+                  </svg>
+                  Posiada swoje zasoby
+                </h2>
+                pamięć, miejsce, czas procesora, adres ip etc.
+              </div>
+            </li>
+            <li>
+              <div>
+                <h2>
+                  <svg class="fa-thumbs-up">
+                    <use xlink:href="#fa-thumbs-up"></use>
+                  </svg>
+                  Jeden przepis na środowisko
+                </h2>
+                łatwe wdrożenia na różne środowiska
+              </div>
+            </li>
+            <li>
+              <div>
+                <h2>
+                  <svg class="fa-text-height">
+                    <use xlink:href="#fa-text-height"></use>
+                  </svg>
+                  Wyizolowane środowisko
+                </h2>
+                kontenery nie mają na siebie wpływu
+              </div>
+            </li>
+            <li>
+              <div>
+                <h2>
+                  <svg class="fa-cubes">
+                    <use xlink:href="#fa-cubes"></use>
+                  </svg>
+                  Skalowalny
+                </h2>
+                reakcja na zwiększony ruch - nowe kontenery
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap size-60">
+          <h3>
+            <strong>Zalety</strong> dlaczego świat oszalał?</h3>
+          <hr>
+          <div class="bg-white shadow">
+            <ul class="flexblock reasons">
+              <li>
+                <h2>Ułatwia proces developmentu</h2>
+                <p>Łatwiejsze wdrożenia, jedno spójne środowisko</p>
+              </li>
+              <li>
+                <h2>Skalowalne</h2>
+                <p>Ponieważ kontenery są lekkie, można szybko stworzyć odpowiednią ilość instancji</p>
+              </li>
+              <li>
+                <h2>Wspiera microservices</h2>
+                <p>świetnie się nadają do ich budowania</p>
+              </li>
+              <li>
+                <h2>Posiada wersjonowanie</h2>
+                <p>trywialne rollbacki</p>
+              </li>
+              <li>
+                <h2>Można zagnieżdżać dockery</h2>
+                <p>docker w dockerze, w dockerze docker...</p>
+              </li>
+            </ul>
+          </div>
+          <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap size-60">
+          <h3>
+            <strong>Wady</strong> dlaczego nie jest tak kolorowo?</h3>
+          <hr>
+          <div class="bg-white shadow">
+            <ul class="flexblock reasons">
+              <li>
+                <h2>Sam docker nie nadaje się na produkcję</h2>
+                <p>potrzebne są orchestratory. Inaczej stawiamy apkę na środowisku developerskim inaczej na prod.</p>
+              </li>
+              <li>
+                <h2>Monolity - niekoniecznie</h2>
+                <p>Docker został stworzony raczej do niewielkich serviceów. Idealnie kiedy kontener reprezentuje jakąs pracę do wykonania.</p>
+              </li>
+              <li>
+                <h2>Wymaga, innego podejścia do programowania</h2>
+                <p>kontenery mogą się ze sobą komunikować ale trzeba pamiętać, że powinny to być zamknięte funkcjonalności</p>
+              </li>
+              <li>
+                <h2>Kontener może wyłożyć Docker Engine</h2>
+                <p>i wszystko leży</p>
+              </li>
+              <li>
+                <h2>Debugowanie</h2>
+                <p>zmora</p>
+              </li>
+            </ul>
+          </div>
+          <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section class="bg-secondary">
+        <div class="wrap">
+          <h3>Kilka pojęć</h3>
+
+          <ul class="flexblock blink border">
+            <li>
+              <a href="#" title="Block Link = .blink">
+                <!--div required = padding li or li>a-->
+                <div>
+                  <h3>Obraz - Dockerfile</h3>
+                  Przepis na jeden konkretny kontener
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Block Link = .blink">
+                <!--div required = padding li or li>a-->
+                <div>
+                  <h3>Docker-compose</h3>
+                  Przepis wiele kontenerów
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Block Link = .blink">
+                <!--div required = padding li or li>a-->
+                <div>
+                  <h3>Rejestr obrazów</h3>
+                  Repozytorium obrazów. Docker hub, Quay, customowe repo.
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Block Link = .blink">
+                <!--div required = padding li or li>a-->
+                <div>
+                  <h3>Orchestrator</h3>
+                  Docker swarm, Kubernetes, Docker Compose, Marathon on Apache Mesos...
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+
+
+      <section class="bg-black aligncenter">
+        <!-- Overlay/Opacity: [class*="bg-"] > .background.dark or .light -->
+        <span class="background dark" style="background-image:url('https://source.unsplash.com/pZVi92S-ZMs/')"></span>
+        <div class="wrap">
+          <h1 class="text-landing text-shadow">Dziękuje :)</h1>
+          <h4>Maciej Andrzejczuk</h4>
+        </div>
+      </section>
+
+    </article>
+
+  </main>
+  <!--main-->
+
+  <!-- Required -->
+  <script src="../static/js/webslides.js"></script>
+
+  <script>
+    window.ws = new WebSlides();
+
+  </script>
+
+  <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+  <script defer src="../static/js/svg-icons.js"></script>
+
+</body>
+
+</html>
